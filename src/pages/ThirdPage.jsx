@@ -1,6 +1,62 @@
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
+
 export default function ThirdPage() {
+  const firstRef = useRef(null);
+  const containerRef = useRef(null);
+  const secondRef = useRef(null);
+  const worthRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.set(firstRef.current, { x: "-500px" });
+            gsap.to(firstRef.current, {
+              x: 0,
+              opacity: 1,
+              duration: 2,
+              ease: "power3.out",
+            });
+            gsap.set(secondRef.current, { y: "500px" });
+            gsap.to(secondRef.current, {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              ease: "power3.out",
+            });
+
+            gsap.set(worthRef.current, { y: "-500px" });
+            gsap.to(worthRef.current, {
+              y: 0,
+              opacity: 1,
+              duration: 2,
+              ease: "power3.out",
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div style={{ background: "black" }}>
+    <div
+      style={{
+        background:
+          "linear-gradient(to bottom, #68007f, #aa0d91, #d43d94, #f07d8f, #f8a070)",
+      }}
+      ref={containerRef}
+    >
       <div className="page-container">
         <div className="offer-container">
           <div class="exclusive-program-text">
@@ -8,14 +64,17 @@ export default function ThirdPage() {
             <br />
           </div>
           <div className="offer-container-row">
-            <div>
+            <div ref={firstRef}>
               <div className="containerOffer">
                 <div className="backgroundOffer" />
                 <div className="textOffer">Bonuses</div>
               </div>
               <div className="container-box">
                 <div>
-                  <div className="box-text">Premium Coders Community</div>
+                  <div className="box-text">
+                    Premium Coders
+                    <br /> Community
+                  </div>
                   <div className="box-span">(Rs 15,000)</div>
                 </div>
                 <div style={{ marginTop: "20px" }}>
@@ -38,7 +97,7 @@ export default function ThirdPage() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="worth" ref={worthRef}>
               <div className="worth-container">
                 <div className="worth-background" />
                 <div className="worth-text">
@@ -48,14 +107,16 @@ export default function ThirdPage() {
                 </div>
               </div>
             </div>
-            <div style={{ marginLeft: "-30px" }}>
+            <div style={{ marginLeft: "-30px" }} ref={secondRef}>
               <div className="containerOffer">
                 <div className="backgroundOffer" />
                 <div className="textOffer">Bonuses</div>
               </div>
               <div className="container-box">
                 <div>
-                  <div className="box-text">Premium Coders Community</div>
+                  <div className="box-text">
+                    Premium Coders <br /> Community
+                  </div>
                   <div className="box-span">(Rs 15,000)</div>
                 </div>
                 <div style={{ marginTop: "20px" }}>
@@ -85,7 +146,6 @@ export default function ThirdPage() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "30px",
-                marginLeft: "20px",
               }}
             >
               <img
