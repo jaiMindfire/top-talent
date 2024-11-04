@@ -8,9 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <div className="home-page">
-        <FirstPage />
-      </div>
+      <FirstPage />
       <SecondPage />
       <ThirdPage />
     </>
