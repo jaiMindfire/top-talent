@@ -4,5 +4,5 @@ body {
   font-family: "Poppins";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background: linear-gradient(135deg, #0a0026, #1a0033, #001f4d);
 }

@@ -169,7 +169,7 @@ ul{
 }
 
 .home-page {
-  background: black;
+  background: linear-gradient(135deg, #0a0026, #1a0033, #001f4d);
   width: 100%;
   height: 90vh;
   padding: 115px;
@@ -183,7 +183,6 @@ ul{
   width: 100%;
   display: grid;
   grid-template-columns: 45% 55%;
-  margin-top: 20px;
 }
 
 .home-page-description {
@@ -227,8 +226,8 @@ ul{
 .blur-text {
   text-align: center;
   color: white;
-  font-size: 20px;
-  font-family: "Ogilen Personal Use", sans-serif;
+  font-size: 22px;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
   line-height: 28.66px;
   letter-spacing: 1.9px;
@@ -407,7 +406,7 @@ ul{
   text-align: center;
   color: #ffffff;
   font-size: 130px;
-  font-family: "Ogilen Personal Use", sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
   letter-spacing: 7px;
   word-wrap: break-word;
@@ -987,7 +986,6 @@ ul{
 
 .container-box {
   border-radius: 40px;
-  opacity: 0px;
   background: #18171730;
   padding: 30px;
   margin-top: 30px;
@@ -1174,3 +1172,4 @@ ul{
     width: 120vh;
   }
 }
+
